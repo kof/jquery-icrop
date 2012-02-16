@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>icrop demo</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script src="../lib/jquery.icrop.js" ></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" type="text/css" media="screen" />
+
+    <style type="text/css">
+        #test1 {
+            margin: 20px 0 10px 50px;
+        }
+        #test1-slider {
+            margin-left: 50px;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+<button id="test1-init">Test1 init</button>
+<button id="test1-destroy">Test1 destroy</button>
+<button id="test1-get">Test1 get size/pos</button>
+
+<div id="test1">
+</div>
+<div id="test1-slider">
+</div>
+
+<script>
+    $('#test1-init').click(function() {
+        $('#test1').icrop({
+            url: 'http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg',
+            width: 150,
+            height: 200,
+            slider: '#test1-slider'
+        });
+    }).click();
+
+    $('#test1-destroy').click(function() {
+        $('#test1').icrop('destroy');
+    });
+
+    $('#test1-get').click(function() {
+        console.log($('#test1').icrop('option', 'size'));
+        console.log($('#test1').icrop('option', 'position'));
+    });
+
+</script>
+
+</body>
+</html>
