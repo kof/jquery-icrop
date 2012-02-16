@@ -2,7 +2,7 @@
 
 ## API
 
-- init
+### init
 
     $('selector').icrop({
         // path to the image
@@ -14,12 +14,12 @@
         slider: 'slider-selector'
     });
 
-- get option
+### get option
 
     $('selector').icrop('option', 'size');
     $('selector').icrop('option', 'position');
 
-- destroy
+### destroy
 
     $('selector').icrop('destroy');
 
