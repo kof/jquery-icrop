@@ -7,12 +7,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
     <script src="../lib/jquery.icrop.js" ></script>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../lib/jquery.icrop.css" media="screen" />
 
     <style type="text/css">
-        #test1 {
+        .test {
             margin: 20px 0 10px 50px;
         }
-        #test1-slider {
+        .test-slider {
             margin-left: 50px;
             width: 150px;
         }
@@ -23,10 +24,22 @@
 <button id="test1-destroy">Test1 destroy</button>
 <button id="test1-get">Test1 get size/pos</button>
 
-<div id="test1">
+<div id="test1" class="test">
 </div>
-<div id="test1-slider">
+<div id="test1-slider" class="test-slider">
 </div>
+
+<br /><br /><br /><br />
+<button id="test2-init">Test2 init</button>
+<button id="test2-destroy">Test2 destroy</button>
+<button id="test2-get">Test2 get size/pos</button>
+
+<div id="test2" class="test">
+    <img src="http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg" />
+</div>
+<div id="test2-slider" class="test-slider">
+</div>
+
 
 <script>
     $('#test1-init').click(function() {
@@ -45,6 +58,26 @@
     $('#test1-get').click(function() {
         console.log($('#test1').icrop('option', 'size'));
         console.log($('#test1').icrop('option', 'position'));
+    });
+
+
+
+
+    $('#test2-init').click(function() {
+        $('#test2').icrop({
+            width: 150,
+            height: 200,
+            slider: '#test2-slider'
+        });
+    }).click();
+
+    $('#test2-destroy').click(function() {
+        $('#test2').icrop('destroy');
+    });
+
+    $('#test2-get').click(function() {
+        console.log($('#test2').icrop('option', 'size'));
+        console.log($('#test2').icrop('option', 'position'));
     });
 
 </script>

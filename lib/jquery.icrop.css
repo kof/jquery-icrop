@@ -1,0 +1,7 @@
+.ui-icrop {
+    overflow: hidden;
+}
+.ui-icrop img {
+    position: relative;
+    cursor: move;
+}
