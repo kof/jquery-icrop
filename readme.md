@@ -8,17 +8,22 @@
     url: null,
     // image selector/element/object, is used if no url defined
     image: 'img',
+    width: null,
+    height: null,
     size: {},
     position: {top: 0, left: 0},
     slider: null,
     sliderOptions: {
         min: 1,
-        max: 10,
+        max: 5,
         step: 0.1
     },
     draggable: {},
     // minimal size of the image, which have to be always visible
-    minVisibleSize: 20
+    minVisibleSize: 20,
+    // onchange callback
+    change: $.noop
+
 
 ### init
 
