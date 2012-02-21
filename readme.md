@@ -48,9 +48,9 @@
 
 ## Dependencies
 
-- jquery
-- ui-draggable
-- ui-slider
+ - jquery.js
+ - jquery.ui.draggable.js
+ - jquery.ui.slider.js
 
 ## License
 
