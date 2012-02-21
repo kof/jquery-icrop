@@ -6,22 +6,35 @@
 
     // image url
     url: null,
-    // image selector/element/object, is used if no url defined
+    // image selector/element/jq object, is used if no url defined
     image: 'img',
+    // container size
     width: null,
     height: null,
-    size: {},
+    // image size
+    size: {
+        width: 'auto',
+        height: 'auto'
+    },
+    zoomProp: 'width',
+    // image position
     position: {top: 0, left: 0},
+    // slider element selector/element/jq object
     slider: null,
     sliderOptions: {
         min: 1,
         max: 5,
-        step: 0.1
+        step: 0.1,
+        change: $.noop,
+        slide: $.noop
     },
-    draggable: {},
+    // draggable option
+    draggable: {
+        stop: $.noop
+    },
     // minimal size of the image, which have to be always visible
     minVisibleSize: 20,
-    // onchange callback
+    // onchange callback, fired after d&d and zoom
     change: $.noop
 
 
