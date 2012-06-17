@@ -44,42 +44,68 @@
 <script>
     $('#test1-init').click(function() {
         $('#test1').icrop({
-            url: 'http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg',
+            image: 'http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg',
             width: 150,
             height: 200,
-            slider: '#test1-slider',
-            change: console.log
+            crop: console.log
         });
     }).click();
+
+    $('#test1-slider').slider({
+        min: 1,
+        max: 5,
+        step: 0.1,
+        slide: function(e, ui) {
+            $('#test1').icrop('option', 'zoom', ui.value);
+        }
+    });
 
     $('#test1-destroy').click(function() {
         $('#test1').icrop('destroy');
     });
 
     $('#test1-get').click(function() {
-        console.log($('#test1').icrop('option', 'size'));
-        console.log($('#test1').icrop('option', 'position'));
+        console.log($('#test1').icrop('getImageSize'));
+        console.log($('#test1').icrop('option', 'top'));
+        console.log($('#test1').icrop('option', 'left'));
+        console.log($('#test1').icrop('option', 'zoom'));
     });
-
-
 
 
     $('#test2-init').click(function() {
         $('#test2').icrop({
             width: 150,
             height: 200,
-            slider: '#test2-slider'
+            left: -150,
+            top: -150,
+            slider: '#test2-slider',
+            zoom: 3,
+            crop: console.log
         });
     }).click();
+
+    $('#test2-slider').slider({
+        min: 1,
+        max: 5,
+        step: 0.1,
+        value: 3,
+        slide: function(e, ui) {
+            $('#test2').icrop('option', 'zoom', ui.value);
+        }
+    });
+
 
     $('#test2-destroy').click(function() {
         $('#test2').icrop('destroy');
     });
 
     $('#test2-get').click(function() {
-        console.log($('#test2').icrop('option', 'size'));
-        console.log($('#test2').icrop('option', 'position'));
+        console.log($('#test2').icrop('getImageSize'));
+        console.log($('#test2').icrop('option', 'top'));
+        console.log($('#test2').icrop('option', 'left'));
+        console.log($('#test2').icrop('option', 'zoom'));
     });
+
 
 </script>
 
