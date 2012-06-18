@@ -29,9 +29,9 @@
 
 <div class="box">
     <h1>Use image url option</h1>
-    <button id="test1-init">Test1 init</button>
-    <button id="test1-destroy">Test1 destroy</button>
-    <button id="test1-get">Test1 get size/pos</button>
+    <button id="test1-init">init</button>
+    <button id="test1-destroy">destroy</button>
+    <button id="test1-get">log data</button>
 
     <div id="test1" class="test">
     </div>
@@ -41,9 +41,9 @@
 
 <div class="box">
     <h1>Use top/left and zoom option and img tag</h1>
-    <button id="test2-init">Test2 init</button>
-    <button id="test2-destroy">Test2 destroy</button>
-    <button id="test2-get">Test2 get size/pos</button>
+    <button id="test2-init">init</button>
+    <button id="test2-destroy">destroy</button>
+    <button id="test2-get">log data</button>
 
     <div id="test2" class="test">
         <img src="http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg" />
@@ -54,9 +54,9 @@
 
 <div class="box">
     <h1>Use top/left and width option and img tag</h1>
-    <button id="test3-init">Test3 init</button>
-    <button id="test3-destroy">Test3 destroy</button>
-    <button id="test3-get">Test3 get size/pos</button>
+    <button id="test3-init">init</button>
+    <button id="test3-destroy">destroy</button>
+    <button id="test3-get">log data</button>
 
     <div id="test3" class="test">
         <img src="http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg" />
@@ -67,6 +67,15 @@
 
 
 <script>
+
+function logOptions(test) {
+    console.log($(test).icrop('option', 'width'));
+    console.log($(test).icrop('option', 'height'));
+    console.log($(test).icrop('option', 'left'));
+    console.log($(test).icrop('option', 'top'));
+    console.log($(test).icrop('option', 'zoom'));
+}
+
 (function() {
     $('#test1-init').click(function() {
         $('#test1')
@@ -92,10 +101,7 @@
     });
 
     $('#test1-get').click(function() {
-        console.log($('#test1').icrop('width'));
-        console.log($('#test1').icrop('option', 'top'));
-        console.log($('#test1').icrop('option', 'left'));
-        console.log($('#test1').icrop('option', 'zoom'));
+        logOptions('#test1');
     });
 }());
 
@@ -127,10 +133,7 @@
     });
 
     $('#test2-get').click(function() {
-        console.log($('#test2').icrop('getImageSize'));
-        console.log($('#test2').icrop('option', 'top'));
-        console.log($('#test2').icrop('option', 'left'));
-        console.log($('#test2').icrop('option', 'zoom'));
+        logOptions('#test2');
     });
 }());
 
@@ -166,10 +169,7 @@
     });
 
     $('#test3-get').click(function() {
-        console.log($('#test3').icrop('getImageSize'));
-        console.log($('#test3').icrop('option', 'top'));
-        console.log($('#test3').icrop('option', 'left'));
-        console.log($('#test3').icrop('option', 'zoom'));
+        logOptions('#test3');
     });
 }());
 
