@@ -148,7 +148,7 @@ function logOptions(test) {
                 console.log(arguments);
             },
             create: function(e, data) {
-                $('#test3-slider').slider('value', data.zoom);
+                $('#test3-slider').slider('value', $(this).icrop('option', 'zoom'));
             }
         });
     }).click();
