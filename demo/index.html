@@ -147,7 +147,7 @@ function logOptions(test) {
             crop: function() {
                 console.log(arguments);
             },
-            ready: function(e, data) {
+            create: function(e, data) {
                 $('#test3-slider').slider('value', data.zoom);
             }
         });
