@@ -2,68 +2,61 @@
 
 ## API
 
-## options
+jQuery like usabillity.
 
-    // image url
-    url: null,
-    // image selector/element/jq object, is used if no url defined
-    image: 'img',
-    // container size
-    width: null,
-    height: null,
-    // image size
-    size: {
-        width: 'auto',
-        height: 'auto'
-    },
-    zoomProp: 'width',
-    // image position
-    position: {top: 0, left: 0},
-    // slider element selector/element/jq object
-    slider: null,
-    sliderOptions: {
-        min: 1,
-        max: 5,
-        step: 0.1,
+    $(selector).icrop(options);
+
+    $(selector).icrop(method, value);
+
+## Default options.
+
+    {
+        // image selector/element/jq object/url
+        image: 'img',
+        // will be calculated from geometry
+        zoom: null,
+        // cropping area calculated relatively to the original image
+        geometry: null,
+        // change callback
         change: $.noop,
-        slide: $.noop
-    },
-    // draggable option
-    draggable: {
-        stop: $.noop
-    },
-    // minimal size of the image, which have to be always visible
-    minVisibleSize: 20,
-    // onchange callback, fired after d&d and zoom
-    change: $.noop
+        // create callback
+        create: $.noop
+    }
 
+## Examples
 
-### init
+### Initialize
 
     $('selector').icrop({
-        // path to the image
-        url: 'http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg',
-        // size of container
-        width: 150,
-        height: 200,
-        // selector/element/jquery objekt of slider
-        slider: 'slider-selector'
+        image: 'http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg'
     });
 
-### get option
+    $('selector').icrop({
+        image: 'http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg',
+        geometry: {
+            top: 40,
+            left: 20,
+            width: 200,
+            height: 250
+        }
+    });
 
-    $('selector').icrop('option', 'size');
-    $('selector').icrop('option', 'position');
+### Get an option
 
-### destroy
+    $('selector').icrop('option', 'geometry');
+
+### Events
+    $('selector').on('change', function(e, geometry) {
+        console.log(geometry);
+    });
+
+    $('selector').on('create', function(e, geometry) {
+        console.log(geometry);
+    });
+
+### Destroy
 
     $('selector').icrop('destroy');
-
-## Dependencies
-
- - jquery.js
- - jquery.ui.draggable.js
- - jquery.ui.slider.js
 
 ## License
 
