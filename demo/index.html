@@ -78,8 +78,8 @@ function logOptions(selector) {
         $('#test1')
             .icrop({
                 image: 'http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg',
-                change: function() {
-                    console.log(arguments);
+                change: function(e, geometry) {
+                    console.log(geometry);
                 }
             });
     }).click();
@@ -111,20 +111,22 @@ function logOptions(selector) {
                 top: 40,
                 left: 100
             },
-            change: function() {
-                console.log(arguments);
+            change: function(e, geometry) {
+                console.log(geometry);
             }
         });
     }).click();
 
-    $('#test2-slider').slider({
-        min: 1,
-        max: 5,
-        step: 0.1,
-        value: 3,
-        slide: function(e, ui) {
-            $('#test2').icrop('option', 'zoom', ui.value);
-        }
+    $('#test2').on('create', function() {
+        $('#test2-slider').slider({
+            min: 1,
+            max: 5,
+            step: 0.1,
+            value: $(this).icrop('option', 'zoom'),
+            slide: function(e, ui) {
+                $('#test2').icrop('option', 'zoom', ui.value);
+            }
+        });
     });
 
 
@@ -141,18 +143,18 @@ function logOptions(selector) {
 (function(){
     $('#test3-init').click(function() {
         $('#test3').icrop({
-            zoom: 70,
-            change: function() {
-                console.log(arguments);
+            zoom: 7,
+            change: function(e, geometry) {
+                console.log(geometry);
             }
         });
     }).click();
 
     $('#test3-slider').slider({
         min: 1,
-        max: 100,
+        max: 10,
         step: 0.1,
-        value: 70,
+        value: 7,
         slide: function(e, ui) {
             $('#test3').icrop('option', 'zoom', ui.value);
         }

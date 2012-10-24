@@ -3,10 +3,17 @@
 ## API
 
 jQuery like usabillity.
-
+    // init
     $(selector).icrop(options);
 
-    $(selector).icrop(method, value);
+    // method call
+    $(selector).icrop(method, param1, param2);
+
+    // get option
+    $(selector).icrop('option', name);
+
+    // set option
+    $(selector).icrop('option', name, value);
 
 ## Default options.
 
@@ -27,11 +34,11 @@ jQuery like usabillity.
 
 ### Initialize
 
-    $('selector').icrop({
+    $(selector).icrop({
         image: 'http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg'
     });
 
-    $('selector').icrop({
+    $(selector).icrop({
         image: 'http://farm4.static.flickr.com/3509/3912427039_a79b87119a.jpg',
         geometry: {
             top: 40,
@@ -43,20 +50,20 @@ jQuery like usabillity.
 
 ### Get an option
 
-    $('selector').icrop('option', 'geometry');
+    $(selector).icrop('option', 'geometry');
 
 ### Events
-    $('selector').on('change', function(e, geometry) {
+    $(selector).on('change', function(e, geometry) {
         console.log(geometry);
     });
 
-    $('selector').on('create', function(e, geometry) {
-        console.log(geometry);
+    $(selector).on('create', function(e) {
+        console.log('created');
     });
 
 ### Destroy
 
-    $('selector').icrop('destroy');
+    $(selector).icrop('destroy');
 
 ## License
 
