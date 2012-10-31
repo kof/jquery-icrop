@@ -1,7 +1,7 @@
 {
     "name": "icrop",
     "description": "Simple image cropper ui",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "repository": "git://github.com/kof/jquery-icrop.git",
     "keywords": ["cropper", "image", "jquery", "apple", "like", "crop", "zoom"],
