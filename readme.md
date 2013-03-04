@@ -61,6 +61,10 @@ jQuery like usabillity.
         console.log('created');
     });
 
+### Get the image original element, width, height and ratio
+
+    $(selector).icrop('image');
+
 ### Destroy
 
     $(selector).icrop('destroy');
